@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineQuiz - Discover Movies & Test Your Film Knowledge</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="CineQuiz Home">
+                <i class="fas fa-film"></i>
+                <span>CineQuiz</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+                <li><a href="explore.html" class="nav-link">Explore Movies</a></li>
+                <li><a href="quiz.html" class="nav-link">Movie Quiz</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>🎬 Discover. Learn. Quiz.</h1>
+            <p class="hero-subtitle">Your ultimate destination for movie discovery and film knowledge testing</p>
+            <p class="hero-description">Explore thousands of movies, save your favorites, and challenge yourself with interactive quizzes. Powered by real TMDB movie data!</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-film"></i>
+                    <span>1M+ Movies</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-star"></i>
+                    <span>Real-time Data</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-trophy"></i>
+                    <span>Interactive Quizzes</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="explore.html" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Explore Movies
+                </a>
+                <a href="quiz.html" class="btn btn-secondary">
+                    <i class="fas fa-gamepad"></i> Start Quiz
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="container">
+        <!-- Features Section -->
+        <section class="features" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="section-title">Why Choose CineQuiz?</h2>
+            <p class="section-subtitle">The perfect blend of entertainment and education for movie lovers</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Real Movie Database</h3>
+                    <p>Access thousands of real movies, ratings, and details from TMDB API. Updated daily with new releases.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Test Your Knowledge</h3>
+                    <p>Challenge yourself with fun, interactive quizzes. Track your scores and improve your film IQ.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bookmark"></i>
+                    </div>
+                    <h3>Save Favorites</h3>
+                    <p>Build your personal watchlist. Save movies you love and discover new recommendations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Search Section -->
+        <section class="search-section" aria-labelledby="search-heading">
+            <h2 id="search-heading" class="section-title">Find Your Next Favorite Movie</h2>
+            <p class="section-subtitle">Search through millions of titles instantly</p>
+            
+            <div class="search-box">
+                <input type="text" id="quick-search" placeholder="Try: 'Inception', 'The Godfather', 'Avengers'..." 
+                       aria-label="Search movies">
+                <button id="search-btn" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Search Movies
+                </button>
+            </div>
+            <div id="search-results" class="search-results" aria-live="polite"></div>
+            
+            <div class="search-tips">
+                <h4><i class="fas fa-lightbulb"></i> Pro Tip:</h4>
+                <p>Search by movie title, genre, or year. Our API connects directly to The Movie Database for accurate results.</p>
+            </div>
+        </section>
+
+        <!-- Quick Quiz Preview -->
+        <section class="quiz-preview" aria-labelledby="quiz-heading">
+            <h2 id="quiz-heading" class="section-title">Quick Film Quiz</h2>
+            <p class="section-subtitle">Test your movie knowledge in 60 seconds!</p>
+            
+            <div class="quiz-card">
+                <div class="quiz-header">
+                    <span class="quiz-badge">Question 1/3</span>
+                    <span class="quiz-timer"><i class="fas fa-clock"></i> 60s</span>
+                </div>
+                
+                <h3>Which director made the film "Inception"?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-option" data-correct="false">
+                        <i class="fas fa-user"></i> Steven Spielberg
+                    </button>
+                    <button class="quiz-option" data-correct="true">
+                        <i class="fas fa-user"></i> Christopher Nolan
+                    </button>
+                    <button class="quiz-option" data-correct="false">
+                        <i class="fas fa-user"></i> Martin Scorsese
+                    </button>
+                </div>
+                
+                <div id="quiz-feedback" class="feedback" aria-live="polite"></div>
+                
+                <div class="quiz-cta">
+                    <p>Like this quiz? Try our full quiz challenge!</p>
+                    <a href="quiz.html" class="btn btn-primary">
+                        <i class="fas fa-play-circle"></i> Start Full Quiz
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials" aria-labelledby="testimonials-heading">
+            <h2 id="testimonials-heading" class="section-title">What Users Say</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Finally, a movie app that's both fun and educational! The quizzes are challenging and the movie database is comprehensive."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Sarah M.</strong>
+                        <span>Film Student</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As a movie buff, I love having all this information in one place. The save feature helps me track what to watch next."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>James R.</strong>
+                        <span>Movie Enthusiast</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Dive Into the World of Cinema?</h2>
+                <p>Join thousands of users who are already exploring, learning, and having fun with movies.</p>
+                <div class="cta-buttons">
+                    <a href="explore.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i> Explore Movies Now
+                    </a>
+                    <a href="quiz.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-trophy"></i> Take the Challenge
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fas fa-film"></i>
+                    <span>CineQuiz</span>
+                </div>
+                <p class="footer-tagline">Where movie discovery meets learning</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Explore</h3>
+                    <a href="index.html">Home</a>
+                    <a href="explore.html">Movies</a>
+                    <a href="quiz.html">Quiz</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="#" aria-label="Privacy Policy">Privacy</a>
+                    <a href="#" aria-label="Terms of Service">Terms</a>
+                    <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <a href="#" aria-label="Contact us">Contact</a>
+                    <a href="#" aria-label="About CineQuiz">About</a>
+                    <a href="#" aria-label="FAQ">FAQ</a>
+                </div>
+            </div>
+            
+            <div class="footer-credits">
+                <p><i class="fas fa-code"></i> Built for Level 5 Web Development Project</p>
+                <p><i class="fas fa-database"></i> Powered by The Movie Database (TMDB) API</p>
+                <p class="copyright">&copy; 2026 CineQuiz. Educational project demonstrating API integration and interactive web development.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

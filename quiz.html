@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Quiz Challenge - CineQuiz | Test Your Film Knowledge</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="CineQuiz Home">
+                <i class="fas fa-film"></i>
+                <span>CineQuiz</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="explore.html" class="nav-link">Explore Movies</a></li>
+                <li><a href="quiz.html" class="nav-link active" aria-current="page">Movie Quiz</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content" class="container">
+        <!-- Quiz Header -->
+        <header class="quiz-header-section">
+            <h1 class="section-title">🎯 Movie Quiz Challenge</h1>
+            <p class="quiz-subtitle">Test your film knowledge with our interactive quiz</p>
+            
+            <div class="quiz-stats-overview">
+                <div class="stat-card">
+                    <i class="fas fa-question-circle"></i>
+                    <span>5 Questions</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <span>60 Second Timer</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <span>Score Tracking</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Quiz Instructions -->
+        <section class="instructions" aria-label="Quiz instructions">
+            <div class="instructions-card">
+                <h2><i class="fas fa-info-circle"></i> How It Works</h2>
+                <ul class="instructions-list">
+                    <li><i class="fas fa-check-circle"></i> Answer 5 movie-related questions</li>
+                    <li><i class="fas fa-check-circle"></i> You have 60 seconds to complete the quiz</li>
+                    <li><i class="fas fa-check-circle"></i> Select one answer per question</li>
+                    <li><i class="fas fa-check-circle"></i> Get instant feedback on each answer</li>
+                    <li><i class="fas fa-check-circle"></i> Track your score and progress</li>
+                </ul>
+                <div class="difficulty-selector">
+                    <span class="difficulty-label">Difficulty:</span>
+                    <span class="difficulty-badge">Medium</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Container -->
+        <div class="quiz-container">
+            <!-- Quiz Stats Bar -->
+            <div class="quiz-stats-bar">
+                <div class="stat">
+                    <i class="fas fa-star"></i>
+                    <span id="score">Score: 0</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-question"></i>
+                    <span id="question-count">Question: 1/5</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">Time: 60s</span>
+                </div>
+            </div>
+
+            <!-- Quiz Content -->
+            <div id="quiz-content">
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Question 1</span>
+                        <span class="question-points">+10 points</span>
+                    </div>
+                    
+                    <h2 id="question-text">Which director made the film "Inception"?</h2>
+                    
+                    <div class="options-grid" id="options-grid">
+                        <!-- Options loaded by JavaScript -->
+                    </div>
+                    
+                    <div class="quiz-controls">
+                        <button id="submit-answer" class="btn btn-primary" disabled>
+                            <i class="fas fa-paper-plane"></i> Submit Answer
+                        </button>
+                        <button id="next-question" class="btn btn-secondary" disabled>
+                            <i class="fas fa-arrow-right"></i> Next Question
+                        </button>
+                        <button id="restart-quiz" class="btn btn-danger">
+                            <i class="fas fa-redo"></i> Restart Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Feedback Area -->
+                <div id="feedback" class="feedback" aria-live="polite" role="alert"></div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span id="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar-wrapper">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results" class="results" hidden>
+                <div class="results-header">
+                    <i class="fas fa-trophy results-icon"></i>
+                    <h2>Quiz Complete!</h2>
+                </div>
+                
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="final-score">0/5</span>
+                    </div>
+                    <div class="score-message">
+                        <p id="result-message">Great effort! Keep learning about movies!</p>
+                    </div>
+                </div>
+                
+                <div class="results-breakdown">
+                    <h3><i class="fas fa-chart-bar"></i> Your Performance</h3>
+                    <div class="breakdown-stats">
+                        <div class="breakdown-stat">
+                            <span class="stat-label">Correct Answers</span>
+                            <span class="stat-value" id="correct-count">0</span>
+                        </div>
+                        <div class="breakdown-stat">
+                            <span class="stat-label">Time Taken</span>
+                            <span class="stat-value" id="time-taken">0s</span>
+                        </div>
+                        <div class="breakdown-stat">
+                            <span class="stat-label">Accuracy</span>
+                            <span class="stat-value" id="accuracy">0%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <button id="play-again" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Play Again
+                    </button>
+                    <a href="explore.html" class="btn btn-secondary">
+                        <i class="fas fa-film"></i> Explore Movies
+                    </a>
+                    <a href="index.html" class="btn btn-secondary">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Tips -->
+        <section class="quiz-tips">
+            <h2><i class="fas fa-lightbulb"></i> Quiz Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Study Movies</h3>
+                    <p>Watch different genres and eras to broaden your knowledge</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Think Critically</h3>
+                    <p>Eliminate obviously wrong answers first</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-stopwatch"></i>
+                    <h3>Manage Time</h3>
+                    <p>Don't spend too long on any single question</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard (Placeholder) -->
+        <section class="leaderboard">
+            <h2><i class="fas fa-crown"></i> Top Scores</h2>
+            <div class="leaderboard-card">
+                <p class="leaderboard-notice">Complete the quiz to see your rank!</p>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-chart-line"></i> View Full Leaderboard
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p><i class="fas fa-graduation-cap"></i> Educational Project - Level 5 Web Development</p>
+            <p><i class="fas fa-code"></i> Demonstrating JavaScript, API Integration & Interactive UI</p>
+            <p class="copyright">&copy; 2026 CineQuiz. All movie data for educational purposes.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/quiz.js"></script>
+</body>
+</html>
