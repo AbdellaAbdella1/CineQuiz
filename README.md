@@ -1,4 +1,4 @@
-# CineQuiz 🎬
+# CineQuiz 
 
 **A dynamic, interactive web application for movie lovers — discover films and test your cinema knowledge.**
 
